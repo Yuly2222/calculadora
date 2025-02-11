@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultDisplay = document.getElementById("result");
     const buttons = document.querySelectorAll(".btn");
     let expression = "";
+    let lastResult = "";
 
     buttons.forEach(button => {
         button.addEventListener("click", () => {
@@ -10,13 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (value === "AC") {
                 expression = "";
-                resultDisplay.textContent = "";
+                expressionDisplay.textContent = "";
             } else if (value === "=") {
                 try {
                     expression = expression.replace(/×/g, "*").replace(/÷/g, "/");
-                    expression = eval(expression).toString();
+                    lastResult = eval(expression).toString();
+                    resultDisplay.textContent = lastResult;
+                    expression = lastResult;
                 } catch {
-                    expression = "Error";
+                    resultDisplay.textContent = "Error";
+                    expression = "";
                 }
             } else if (value === "⌫") {
                 expression = expression.slice(0, -1);
@@ -29,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
             expressionDisplay.textContent = expression;
-            resultDisplay.textContent = expression;
         });
     });
 });
