@@ -101,7 +101,7 @@ table {
 }
 
 #history-container {
-    position: absolute;
+    position:absolute;
     top: 20px; /* Alineado con la parte superior de la calculadora */
     right: -320px; /* Fuera de la calculadora, a la derecha */
     width: 350px; /* Ancho del historial */
@@ -113,7 +113,14 @@ table {
     z-index: 10;
     display: none; /* Siempre está en el DOM, pero fuera de la vista */
 }
-
+/* Media query para pantallas pequeñas */
+@media (max-width: 1200px) {
+    #history-container {
+        top: auto; /* Elimina la posición superior */
+        bottom: -120px; /* Mueve el historial debajo de la calculadora */
+        left: 50%-175px;    
+    }
+}
 #history-container.visible {
     right: 20px; /* Mostrar al lado derecho de la calculadora */
     display: block; /* Hacer visible */
