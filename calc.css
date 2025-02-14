@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f3f3ff;
+    background-color: #040416;
     margin: 0;
 }
 
@@ -120,3 +120,54 @@ table {
 }
 
 
+/* Tema invertidooooooooooooooooooooooooooooo */
+#calculator.inverted {
+    background: #f3f3ff; /* Fondo claro */
+    color: #0a0a23; /* Texto oscuro */
+}
+
+#calculator.inverted #current-operation, #calculator.inverted #result,
+#calculator.inverted #calc-title, #calculator.inverted #theme,
+#calculator.inverted #history {
+    background: #f3f3ff; /* Fondo claro */
+    color: #0a0a23; /* Texto oscuro */
+}
+
+#calculator.inverted .calc-btn {
+    background: #d3d3d3; /* Botones claros */
+    color: #0a0a23; /* Texto oscuro */
+}
+
+#calculator.inverted .calc-btn:active {
+    background: #b0b0b0; /* Botones claros al presionar */
+}
+
+#calculator.inverted #ac,
+#calculator.inverted #equals {
+    background: #7c4dff; /* Botones especiales (AC y =) */
+    color: #fff; /* Texto blanco */
+}
+
+#calculator.inverted #ac:active,
+#calculator.inverted #equals:active {
+    background: #9a6dff; /* Botones especiales al presionar */
+}
+
+#calculator.inverted #plus, #calculator.inverted #minus,
+#calculator.inverted #multiply, #calculator.inverted #divide,
+#calculator.inverted #percent,
+#calculator.inverted #plus-minus {
+    background: #a1abff; /* Botones de operaciones */
+    color: #0a0a23; /* Texto oscuro */
+}
+
+#calculator.inverted #plus:active, #calculator.inverted #minus:active,
+#calculator.inverted #multiply:active, #calculator.inverted #divide:active,
+#calculator.inverted #percent:active,
+#calculator.inverted #plus-minus:active {
+    background: #9a6dff; /* Botones de operaciones al presionar */
+}
+
+body.inverted-background {
+    background-color: #ffffff; /* Fondo oscuro */
+}

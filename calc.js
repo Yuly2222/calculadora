@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentOperation = document.getElementById('current-operation');
     const historyContainer = document.getElementById('history-container');
     const historyList = document.getElementById('history-list');
+    const body = document.body; // Obtener el elemento body
     let currentInput = '';
     let previousInput = '';
     let operation = null;
@@ -16,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const historyButton = document.getElementById('history');
     historyButton.addEventListener('click', toggleHistory);
+
+    const themeButton = document.getElementById('theme');
+    themeButton.addEventListener('click', toggleTheme);
 
     function handleButtonClick(button) {
         const value = button.innerText;
@@ -127,6 +131,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function toggleHistory() {
         historyContainer.classList.toggle('visible');
+    }
+
+    function toggleTheme() {
+        calculator.classList.toggle('inverted'); // Alternar la clase 'inverted'
+        body.classList.toggle('inverted-background'); // Alternar la clase 'inverted-background'
+
+        const themeButton = document.getElementById('theme');
+        if (calculator.classList.contains('inverted')) {
+            themeButton.innerText = '☀️'; // Modo claro (sol)
+        } else {
+            themeButton.innerText = '🌙'; // Modo oscuro (luna)
+        }
     }
 
     function updateHistoryDisplay() {
