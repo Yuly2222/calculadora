@@ -7,57 +7,73 @@ body {
     background-color: #040416;
     margin: 0;
 }
-
+ 
 #calculator {
     background: #0a0a23;
     padding: 15px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     max-width: 300px;
+    text-align: center;
 }
-
-#current-operation {
+ 
+/* Sección de la pantalla de la calculadora */
+#current-operation, #result {
     background: #0a0a23;
-    color: #bfbfbf;
+    color: white;
     font-size: 2em;
     text-align: right;
     padding: 15px;
     border: none;
     margin-bottom: 15px;
 }
-
-#result {
-    background: #0a0a23;
-    color: #fff;
-    font-size: 2em;
-    text-align: right;
-    padding: 15px;
-    border: none;
-    margin-bottom: 15px;
-}
-
+ 
+/* Título de la calculadora con botones */
 #calc-title {
     display: flex;
-    background: #0a0a23;
-    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
     font-size: 1.2em;
-    text-align: right;
     padding: 15px;
+}
+ 
+/* Botón de historial ahora a la izquierda */
+#theme {
+    background: #3a3a5c;
+    color: white;
     border: none;
-    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em;
 }
-
-#theme, #history {
-    display: flex;
-    background: #0a0a23;
-    color: #fff;
-    margin-left: 8rem;
+ 
+#theme:hover {
+    background: #5c5c8a;
 }
-
+ 
+#history {
+    background: #3a3a5c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em;
+    margin-right: auto; /* Mueve el botón a la izquierda */
+}
+ 
+#history:hover {
+    background: #5c5c8a;
+}
+ 
 table {
     width: 100%;
 }
-
+ 
 .calc-btn {
     width: 60px;
     height: 60px;
@@ -70,111 +86,128 @@ table {
     cursor: pointer;
     transition: background 0.2s ease;
 }
-
+ 
 .calc-btn:active {
     background: #5c5c8a;
 }
-
-#ac {
+ 
+#ac, #equals {
     background: #7c4dff;
 }
-
-#ac:active {
+ 
+#ac:active, #equals:active {
     background: #9a6dff;
 }
-
-#equals {
-    background: #7c4dff;
-}
-
-#equals:active {
-    background: #9a6dff;
-}
-
+ 
 #plus, #minus, #multiply, #divide, #percent, #plus-minus {
     background: #a1abff;
     color: white;
 }
-
+ 
 #plus:active, #minus:active, #multiply:active, #divide:active, #percent:active, #plus-minus:active {
     background: #9a6dff;
 }
-
+ 
+/* Contenedor del historial mejorado */
 #history-container {
-    position:absolute;
-    top: 20px; /* Alineado con la parte superior de la calculadora */
-    right: -320px; /* Fuera de la calculadora, a la derecha */
-    width: 350px; /* Ancho del historial */
+    position: absolute;
+    top: 20px;
+    right: -320px;
+    width: 350px;
     padding: 15px;
-    border-radius: 30px;
+    border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     background: #7c4dff;
     color: #fff;
     z-index: 10;
-    display: none; /* Siempre está en el DOM, pero fuera de la vista */
+    display: none;
+    text-align: left; /* Alinea el texto del historial a la izquierda */
 }
-/* Media query para pantallas pequeñas */
-@media (max-width: 1200px) {
-    #history-container {
-        top: auto; /* Elimina la posición superior */
-        bottom: -120px; /* Mueve el historial debajo de la calculadora */
-        left: calc(50% - 175px); 
-    }
+ 
+/* Título de historial */
+#history-container h3 {
+    text-align: center;
+    margin-bottom: 10px;
 }
+ 
+/* Estilos para la lista del historial */
+#history-list {
+    list-style: none;
+    padding: 0;
+    text-align: left; /* Alinea los números del historial a la izquierda */
+}
+ 
+#history-list li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+ 
+/* Botón de borrar historial alineado debajo del título */
+#clear-history {
+    background: #9a6dff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: block;
+    margin: 10px auto 0 auto; /* Centra el botón debajo del título */
+}
+ 
+#clear-history:hover {
+    background: #9a6dff;
+}
+ 
 #history-container.visible {
-    right: 20px; /* Mostrar al lado derecho de la calculadora */
-    display: block; /* Hacer visible */
+    right: 20px;
+    display: block;
 }
-
-
-/* Tema invertidooooooooooooooooooooooooooooo */
+ 
+/* Tema invertido */
 #calculator.inverted {
-    background: #f3f3ff; /* Fondo claro */
-    color: #0a0a23; /* Texto oscuro */
+    background: #f3f3ff;
+    color: #0a0a23;
 }
-
+ 
 #calculator.inverted #current-operation, #calculator.inverted #result,
-#calculator.inverted #calc-title, #calculator.inverted #theme,
-#calculator.inverted #history {
-    background: #f3f3ff; /* Fondo claro */
-    color: #0a0a23; /* Texto oscuro */
+#calculator.inverted #calc-title, #calculator.inverted #theme, #calculator.inverted #history {
+    background: #f3f3ff;
+    color: #0a0a23;
 }
-
+ 
 #calculator.inverted .calc-btn {
-    background: #d3d3d3; /* Botones claros */
-    color: #0a0a23; /* Texto oscuro */
+    background: #d3d3d3;
+    color: #0a0a23;
 }
-
+ 
 #calculator.inverted .calc-btn:active {
-    background: #b0b0b0; /* Botones claros al presionar */
+    background: #b0b0b0;
 }
-
-#calculator.inverted #ac,
-#calculator.inverted #equals {
-    background: #7c4dff; /* Botones especiales (AC y =) */
-    color: #fff; /* Texto blanco */
+ 
+#calculator.inverted #ac, #calculator.inverted #equals {
+    background: #7c4dff;
+    color: #fff;
 }
-
-#calculator.inverted #ac:active,
-#calculator.inverted #equals:active {
-    background: #9a6dff; /* Botones especiales al presionar */
+ 
+#calculator.inverted #ac:active, #calculator.inverted #equals:active {
+    background: #9a6dff;
 }
-
+ 
 #calculator.inverted #plus, #calculator.inverted #minus,
 #calculator.inverted #multiply, #calculator.inverted #divide,
-#calculator.inverted #percent,
-#calculator.inverted #plus-minus {
-    background: #a1abff; /* Botones de operaciones */
-    color: #0a0a23; /* Texto oscuro */
+#calculator.inverted #percent, #calculator.inverted #plus-minus {
+    background: #a1abff;
+    color: #0a0a23;
 }
-
+ 
 #calculator.inverted #plus:active, #calculator.inverted #minus:active,
 #calculator.inverted #multiply:active, #calculator.inverted #divide:active,
-#calculator.inverted #percent:active,
-#calculator.inverted #plus-minus:active {
-    background: #9a6dff; /* Botones de operaciones al presionar */
+#calculator.inverted #percent:active, #calculator.inverted #plus-minus:active {
+    background: #9a6dff;
 }
-
+ 
 body.inverted-background {
-    background-color: #ffffff; /* Fondo oscuro */
+    background-color: #ffffff;
 }
