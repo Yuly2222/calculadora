@@ -1,15 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     const resultDisplay = document.getElementById('result');
     const currentOperation = document.getElementById('current-operation');
+    const historyContainer = document.getElementById('history-container');
+    const historyList = document.getElementById('history-list');
     let currentInput = '';
     let previousInput = '';
     let operation = null;
+    let history = []; // Definir el array history
 
     const buttons = document.querySelectorAll('.calc-btn');
     
     buttons.forEach(button => {
         button.addEventListener('click', () => handleButtonClick(button));
     });
+
+    const historyButton = document.getElementById('history');
+    historyButton.addEventListener('click', toggleHistory);
 
     function handleButtonClick(button) {
         const value = button.innerText;
@@ -101,6 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         currentInput = computation.toString();
+        // Guardar la operación en el historial
+        const operationString = `${prev} ${operation || ''} ${current} = ${computation}`;
+        history.push(operationString);
+        updateHistoryDisplay();
+
         operation = null;
         previousInput = '';
         updateCurrentOperationDisplay();
@@ -113,4 +124,18 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCurrentOperationDisplay() {
         currentOperation.innerText = previousInput + (operation || '') + currentInput;
     }
+
+    function toggleHistory() {
+        historyContainer.classList.toggle('visible');
+    }
+
+    function updateHistoryDisplay() {
+        historyList.innerHTML = ''; // Limpiar el historial antes de actualizar
+        history.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            historyList.appendChild(li);
+        });
+    }
+
 });

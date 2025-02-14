@@ -47,7 +47,7 @@ body {
     margin-bottom: 15px;
 }
 
-#theme {
+#theme, #history {
     display: flex;
     background: #0a0a23;
     color: #fff;
@@ -99,3 +99,24 @@ table {
 #plus:active, #minus:active, #multiply:active, #divide:active, #percent:active, #plus-minus:active {
     background: #9a6dff;
 }
+
+#history-container {
+    position: absolute;
+    top: 20px; /* Alineado con la parte superior de la calculadora */
+    right: -320px; /* Fuera de la calculadora, a la derecha */
+    width: 350px; /* Ancho del historial */
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: #7c4dff;
+    color: #fff;
+    z-index: 10;
+    display: none; /* Siempre está en el DOM, pero fuera de la vista */
+}
+
+#history-container.visible {
+    right: 20px; /* Mostrar al lado derecho de la calculadora */
+    display: block; /* Hacer visible */
+}
+
+
