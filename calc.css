@@ -118,7 +118,7 @@ table {
     #history-container {
         top: auto; /* Elimina la posición superior */
         bottom: -120px; /* Mueve el historial debajo de la calculadora */
-        left: 50%-175px;    
+        left: calc(50% - 175px); 
     }
 }
 #history-container.visible {

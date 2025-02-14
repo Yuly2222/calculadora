@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const body = document.body; // Obtener el elemento body
     let currentInput = '';
     let previousInput = '';
-    let operation = null;
+    let operation = null; 
     let history = []; // Definir el array history
 
     const buttons = document.querySelectorAll('.calc-btn');
